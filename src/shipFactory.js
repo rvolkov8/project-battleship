@@ -1,16 +1,12 @@
 export default function shipFactory(length) {
-  let shipLength = length;
+  const shipLength = length;
   let hitNum = 0;
   let orientation = 'horizontal';
-  let coordinates = [];
+  const coordinates = [];
 
-  const getLength = () => {
-    return shipLength;
-  };
+  const getLength = () => shipLength;
 
-  const getOrientation = () => {
-    return orientation;
-  };
+  const getOrientation = () => orientation;
 
   const changeOrientation = () => {
     if (orientation === 'horizontal') {
@@ -25,25 +21,20 @@ export default function shipFactory(length) {
     coordinates.push(result);
   };
 
-  const getCoordinates = () => {
-    return coordinates;
-  };
+  const getCoordinates = () => coordinates;
 
   const hit = () => {
     hitNum++;
     return shipLength - hitNum;
   };
 
-  const getHitNum = () => {
-    return hitNum;
-  };
+  const getHitNum = () => hitNum;
 
   const isSunk = () => {
     if (hitNum === shipLength) {
       return true;
-    } else {
-      return false;
     }
+    return false;
   };
 
   return {

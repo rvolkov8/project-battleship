@@ -1,8 +1,8 @@
 export default function gameBoardFactory() {
   const board = [];
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 10; i + 1) {
     const row = [];
-    for (let j = 0; j < 10; j++) {
+    for (let j = 0; j < 10; j + 1) {
       row.push({ hasShip: false, hasBeenHit: false });
     }
     board.push(row);
@@ -10,19 +10,17 @@ export default function gameBoardFactory() {
   const ships = [];
   const missedHits = [];
 
-  const getMissedHits = () => {
-    return missedHits;
-  };
+  const getMissedHits = () => missedHits;
 
   const placeShip = (ship, startX, startY) => {
     const shipLength = ship.getLength();
     if (ship.getOrientation() === 'horizontal') {
-      for (let i = 0; i < shipLength; i++) {
+      for (let i = 0; i < shipLength; i + 1) {
         board[startX + i][startY].hasShip = true;
         ship.addCoordinates(startX + i, startY);
       }
     } else if (ship.getOrientation() === 'vertical') {
-      for (let i = 0; i < shipLength; i++) {
+      for (let i = 0; i < shipLength; i + 1) {
         board[startX][startY + i].hasShip = true;
         ship.addCoordinates(startX, startY + i);
       }
@@ -30,16 +28,13 @@ export default function gameBoardFactory() {
     ships.push(ship);
   };
 
-  const includesArr = (mainArr, arrToCheck) => {
-    return mainArr.some(
-      (arr) => JSON.stringify(arr) === JSON.stringify(arrToCheck)
-    );
-  };
+  const includesArr = (mainArr, arrToCheck) =>
+    mainArr.some((arr) => JSON.stringify(arr) === JSON.stringify(arrToCheck));
 
   const receiveAttack = (x, y) => {
     const targetCoordinates = [x, y];
     let hasShip = false;
-    for (let i = 0; i < ships.length; i++) {
+    for (let i = 0; i < ships.length; i + 1) {
       const ship = ships[i];
       const shipCoordinates = ships[i].getCoordinates();
       if (includesArr(shipCoordinates, targetCoordinates)) {
@@ -54,7 +49,7 @@ export default function gameBoardFactory() {
   };
 
   const allShipsSunk = () => {
-    for (let i = 0; i < ships.length; i++) {
+    for (let i = 0; i < ships.length; i + 1) {
       const ship = ships[i];
       if (!ship.isSunk()) {
         return false;

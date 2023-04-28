@@ -7,7 +7,12 @@
     "jest": true,
     "jest/globals": true
   },
-  "extends": ["airbnb-base", "plugin:jest/recommended", "prettier"],
+  "extends": [
+    "airbnb-base",
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest"

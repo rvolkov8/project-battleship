@@ -4,21 +4,13 @@
     "browser": true,
     "commonjs": true,
     "es2021": true,
-    "jest": true,
-    "jest/globals": true
+    "jest": true
   },
-  "extends": [
-    "airbnb-base",
-    "plugin:jest/recommended",
-    "plugin:prettier/recommended",
-    "prettier"
-  ],
+  "extends": "airbnb-base",
   "overrides": [],
   "parserOptions": {
-    "ecmaVersion": "latest"
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
-  "rules": {
-    "prettier/prettier": "error"
-  },
-  "ignorePatterns": ["node-modules"]
+  "rules": {}
 }

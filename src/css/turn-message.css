@@ -1,0 +1,10 @@
+.turn-message-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.turn-message-text {
+  font-size: 1.7rem;
+  cursor: default;
+}

@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.logo {
+  font-family: "Big Shoulders Stencil Text", cursive;
+  font-size: 5rem;
+  cursor: default;
+}

@@ -12,6 +12,9 @@
 
   --black: #030712;
   --bg-gray: #f3f4f6;
+  --ship: #374151;
+  --missed: #bfdbfe;
+  --hit: #fca5a5;
 }
 
 body {

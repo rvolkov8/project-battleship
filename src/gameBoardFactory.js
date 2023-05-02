@@ -61,6 +61,7 @@ export default function gameBoardFactory() {
 
   return {
     board,
+    includesArr,
     getMissedHits,
     placeShip,
     receiveAttack,

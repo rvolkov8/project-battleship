@@ -21,7 +21,29 @@
   border: 4px solid var(--black);
 
   display: grid;
-  grid-template: repeat(1fr, 10) / repeat(1fr, 10);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+.row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.missed {
+  background-color: var(--missed);
+}
+
+.hit {
+  background-color: var(--hit);
+}
+
+.has-ship {
+  background-color: var(--ship);
+}
+
+.cell {
+  border: 1px solid var(--black);
 }
 
 .player-name,

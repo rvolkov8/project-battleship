@@ -1,10 +1,23 @@
 export default function domManipulatorFactory() {
+  const messageText = document.querySelector('.turn-message-text');
+  const winnerContainer = document.querySelector('.winner-container');
+  const winnerText = document.querySelector('.winner-text');
+
   const setPlayerName = (player, nameElement) => {
     // eslint-disable-next-line no-param-reassign
     nameElement.textContent = player.getName();
   };
 
+  const toggleWinnerContainer = () => {
+    if (winnerContainer.style.display === 'none') {
+      winnerContainer.style.display = 'flex';
+    } else if (winnerContainer.style.display === 'flex') {
+      winnerContainer.style.display = 'none';
+    }
+  };
+
   const renderGameBoard = (player, boardElement) => {
+    winnerContainer.style.display = 'none';
     while (boardElement.firstChild) {
       boardElement.removeChild(boardElement.firstChild);
     }
@@ -24,7 +37,11 @@ export default function domManipulatorFactory() {
           cell.classList.add('missed');
         }
         if (player.getName() !== 'Computer') {
-          if (board[i][j].hasShip === true) {
+          if (
+            // eslint-disable-next-line operator-linebreak
+            board[i][j].hasShip === true &&
+            board[i][j].hasBeenHit === false
+          ) {
             cell.classList.add('has-ship');
           }
         }
@@ -51,5 +68,21 @@ export default function domManipulatorFactory() {
     });
   };
 
-  return { setPlayerName, renderGameBoard, addClickListener };
+  const showPlayerTurnText = (player) => {
+    messageText.textContent = `It is ${player.getName()}'s turn!`;
+  };
+
+  const showWinner = (player) => {
+    toggleWinnerContainer();
+    winnerText.textContent = `${player.getName()} wins!`;
+  };
+
+  return {
+    setPlayerName,
+    showPlayerTurnText,
+    renderGameBoard,
+    addClickListener,
+    showWinner,
+    toggleWinnerContainer,
+  };
 }

@@ -22,6 +22,7 @@ export default function computerFactory(name = 'Computer') {
   const takeTurn = (enemy) => {
     const [x, y] = makeMove();
     enemy.receiveAttack(x, y);
+    console.log('ye');
   };
 
   return {

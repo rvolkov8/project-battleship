@@ -10,11 +10,13 @@
 :root {
   font-size: 16px;
 
+  --white: #fff;
   --black: #030712;
   --bg-gray: #f3f4f6;
+  --cell-hover: #d1d5db;
   --ship: #374151;
   --missed: #bfdbfe;
-  --hit: #fca5a5;
+  --hit: #f87171;
 }
 
 body {

@@ -24,7 +24,7 @@ export default function shipFactory(length) {
   const getCoordinates = () => coordinates;
 
   const hit = () => {
-    hitNum++;
+    hitNum += 1;
     return shipLength - hitNum;
   };
 

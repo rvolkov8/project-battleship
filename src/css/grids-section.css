@@ -1,4 +1,5 @@
 .grids-section {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,6 +31,15 @@
   grid-template-columns: repeat(10, 1fr);
 }
 
+.cell {
+  background-color: var(--white);
+  border: 1px solid var(--black);
+}
+
+.computer-grid > .row > .cell {
+  cursor: pointer;
+}
+
 .missed {
   background-color: var(--missed);
 }
@@ -42,8 +52,8 @@
   background-color: var(--ship);
 }
 
-.cell {
-  border: 1px solid var(--black);
+.computer-grid > .row > .cell:not(.missed):not(.hit):hover {
+  background-color: var(--cell-hover);
 }
 
 .player-name,
@@ -51,4 +61,39 @@
   color: var(--black);
   font-size: 1.5rem;
   font-weight: 700;
+}
+
+.winner-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  background: rgba(243, 244, 246, 0.8);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.winner-text {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.play-again-button {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--white);
+  border-radius: 9px;
+  padding: 20px 40px;
+  background-color: var(--black);
+  cursor: pointer;
+}
+
+.play-again-button:hover {
+  background-color: rgb(35, 35, 35);
 }
